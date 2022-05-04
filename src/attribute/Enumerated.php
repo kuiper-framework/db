@@ -11,18 +11,10 @@
 
 declare(strict_types=1);
 
-namespace kuiper\db\annotation;
+namespace kuiper\db\attribute;
 
-/**
- * @Annotation
- * @Target("PROPERTY")
- */
-final class GeneratedValue implements Annotation
+
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
+final class Enumerated implements Attribute
 {
-    /**
-     * The type of Id generator.
-     *
-     * @var string
-     */
-    public $value = 'AUTO';
 }

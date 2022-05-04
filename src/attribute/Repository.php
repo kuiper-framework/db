@@ -11,20 +11,23 @@
 
 declare(strict_types=1);
 
-namespace kuiper\db\annotation;
+namespace kuiper\db\attribute;
 
-use Doctrine\Common\Annotations\Annotation\Required;
-use kuiper\di\annotation\Service;
+use kuiper\di\attribute\Service;
 
-/**
- * @Annotation
- * @Target({"CLASS"})
- */
+
+#[\Attribute(\Attribute::TARGET_CLASS)]
 class Repository extends Service
 {
+    public function __construct(private readonly string $entityClass)
+    {
+    }
+
     /**
-     * @var string
-     * @Required()
+     * @return string
      */
-    public $entityClass;
+    public function getEntityClass(): string
+    {
+        return $this->entityClass;
+    }
 }

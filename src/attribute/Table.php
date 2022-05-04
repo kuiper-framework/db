@@ -11,16 +11,21 @@
 
 declare(strict_types=1);
 
-namespace kuiper\db\sharding\rule;
+namespace kuiper\db\attribute;
 
-class IdentityRule implements RuleInterface
+
+#[\Attribute(\Attribute::TARGET_CLASS)]
+final class Table implements Attribute
 {
-    public function __construct(private readonly int|string $id)
+    public function __construct(private readonly string $name)
     {
     }
 
-    public function getPartition(array $fields): int|string
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
-        return $this->id;
+        return $this->name;
     }
 }

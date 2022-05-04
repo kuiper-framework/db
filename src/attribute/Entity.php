@@ -11,12 +11,10 @@
 
 declare(strict_types=1);
 
-namespace kuiper\db\annotation;
+namespace kuiper\db\attribute;
 
-/**
- * @Annotation
- * @Target("CLASS")
- */
-final class Entity implements Annotation
+
+#[\Attribute(\Attribute::TARGET_CLASS)]
+final class Entity implements Attribute
 {
 }

@@ -11,8 +11,10 @@
 
 declare(strict_types=1);
 
-namespace kuiper\db\annotation;
+namespace kuiper\db\attribute;
 
-interface Annotation
+
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
+final class ShardKey implements Attribute
 {
 }
